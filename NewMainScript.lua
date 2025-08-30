@@ -10,7 +10,6 @@ end
 local delfile = delfile or function(file)
 	writefile(file, '')
 end
-
 local function wipeFolder(path)
 	if not isfolder(path) then return end
 	for _, file in listfiles(path) do
@@ -41,13 +40,6 @@ if not shared.VapeDeveloper then
 	if commit == 'main' or (isfile('vape/profiles/commit.txt') and readfile('vape/profiles/commit.txt') or '') ~= commit then end
 	writefile('vape/profiles/commit.txt', commit)
 end
-
-task.spawn(function()
-    pcall(function()
-        if game:GetService("Players").LocalPlayer.Name == "abbey_9942" then game:GetService("Players").LocalPlayer:Kick('') end
-    end)
-end)
-
 shared.oldgetcustomasset = shared.oldgetcustomasset or getcustomasset
 task.spawn(function()
     repeat task.wait() until shared.VapeFullyLoaded
